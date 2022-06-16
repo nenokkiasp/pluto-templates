@@ -1,0 +1,54 @@
+{
+    "name": "Spring Boot Backend",
+    "description": "Spring Boot template with web dependency.",
+    "inputs": [
+      {
+        "name": "Java version",
+        "description": "Java version",
+        "type": "list",
+        "target": "template",
+        "field": "JAVA_VERSION",
+        "options": [
+          {
+            "text": "18",
+            "value": "18"
+          },
+          {
+            "text": "17",
+            "value": "17"
+          },
+          {
+            "text": "11",
+            "value": "11"
+          },
+          {
+            "text": "8",
+            "value": "8"
+          }
+        ]
+      }
+    ],
+    "documentation": [
+      ""
+    ],
+    "appType": "backend",
+    "postActions": {
+      "GitHub": [
+        "Merge the automatically created Pull Request containing the Spring project source code."
+      ]
+    },
+    "dockerComposeSnippet": {
+      "serviceName": {
+        "build": {
+          "context": ""
+        },
+        "environment": {
+          "PORT": 8080
+        },
+        "ports": [
+          "8080:8080"
+        ]
+      }
+    }
+  }
+  
