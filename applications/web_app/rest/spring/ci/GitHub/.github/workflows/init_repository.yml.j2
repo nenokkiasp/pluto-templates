@@ -15,7 +15,16 @@ jobs:
           brew install spring-boot
       
       - name: Run Spring Initializr
-        run: spring init --dependencies=web
+      {% set params = ctx.current_template['parameters'] %}
+        run: |
+          spring init \
+            --build={{ctx.current_template['parameters']['BUILD_TOOL']}} \
+            --language={{ctx.current_template['parameters']['JVM_LANGUAGE']}} \
+            --java-version={{ctx.current_template['parameters']['JAVA_VERSION']}} \
+            --packaging={{ctx.current_template['parameters']['PACKAGING']}} \
+            --group-id={{ctx.current_template['parameters']['GROUP_ID']}} \
+            --artifact-id={{ctx.current_template['parameters']['ARTIFACT_ID']}} \
+            --dependencies=web
           
       - name: Unzip Spring project
         run: unzip demo.zip

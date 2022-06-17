@@ -1,54 +1,123 @@
 {
-    "name": "Spring Boot Backend",
-    "description": "Spring Boot template with web dependency.",
-    "inputs": [
-      {
-        "name": "Java version",
-        "description": "Java version",
-        "type": "list",
-        "target": "template",
-        "field": "JAVA_VERSION",
-        "options": [
-          {
-            "text": "18",
-            "value": "18"
-          },
-          {
-            "text": "17",
-            "value": "17"
-          },
-          {
-            "text": "11",
-            "value": "11"
-          },
-          {
-            "text": "8",
-            "value": "8"
-          }
-        ]
-      }
-    ],
-    "documentation": [
-      ""
-    ],
-    "appType": "backend",
-    "postActions": {
-      "GitHub": [
-        "Merge the automatically created Pull Request containing the Spring project source code."
+  "name": "Spring Boot Backend",
+  "description": "Spring Boot template with web dependency.",
+  "inputs": [
+    {
+      "name": "Build tool",
+      "description": "Java build tool",
+      "type": "list",
+      "target": "template",
+      "field": "BUILD_TOOL",
+      "options": [
+        {
+          "text": "Maven",
+          "value": "maven"
+        },
+        {
+          "text": "Gradle",
+          "value": "gradle"
+        }
       ]
     },
-    "dockerComposeSnippet": {
-      "serviceName": {
-        "build": {
-          "context": ""
+    {
+      "name": "JVM Language",
+      "description": "JVM Language",
+      "type": "list",
+      "target": "template",
+      "field": "JVM_LANGUAGE",
+      "options": [
+        {
+          "text": "Java",
+          "value": "java"
         },
-        "environment": {
-          "PORT": 8080
+        {
+          "text": "Kotlin",
+          "value": "kotlin"
         },
-        "ports": [
-          "8080:8080"
-        ]
-      }
+        {
+          "text": "Groovy",
+          "value": "groovy"
+        }
+      ]
+    },
+    {
+      "name": "Java version",
+      "description": "Java version",
+      "type": "list",
+      "target": "template",
+      "field": "JAVA_VERSION",
+      "options": [
+        {
+          "text": "18",
+          "value": "18"
+        },
+        {
+          "text": "17",
+          "value": "17"
+        },
+        {
+          "text": "11",
+          "value": "11"
+        },
+        {
+          "text": "8",
+          "value": "8"
+        }
+      ]
+    },
+    {
+      "name": "Packaging",
+      "description": "Packaging",
+      "type": "list",
+      "target": "template",
+      "field": "PACKAGING",
+      "options": [
+        {
+          "text": "Jar",
+          "value": "jar"
+        },
+        {
+          "text": "War",
+          "value": "war"
+        }
+      ]
+    },
+    {
+      "name": "Group ID",
+      "description": "groupId, e.g. com.example",
+      "type": "text",
+      "target": "template",
+      "field": "GROUP_ID"
+    },
+    {
+      "name": "Artifact ID",
+      "description": "Artifact ID",
+      "type": "text",
+      "target": "template",
+      "field": "ARTIFACT_ID"
+    }
+  ],
+  "documentation": [
+    ""
+  ],
+  "appType": "backend",
+  "postActions": {
+    "GitHub": [
+      "Merge the automatically created Pull Request containing the Spring project source code."
+    ]
+  },
+  "dockerComposeSnippet": {
+    "serviceName": {
+      "build": {
+        "context": ""
+      },
+      "environment": {
+        "PORT": 8080
+      },
+      "ports": [
+        "8080:8080"
+      ]
     }
   }
+}
   
