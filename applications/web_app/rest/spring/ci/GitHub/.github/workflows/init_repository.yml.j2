@@ -13,19 +13,10 @@ jobs:
         run: |
           brew tap spring-io/tap
           brew install spring-boot
-      
+{% set params = ctx.current_template['parameters'] %}
       - name: Run Spring Initializr
-      {% set params = ctx.current_template['parameters'] %}
         run: |
           spring init \
-#            --build={{ctx.current_template['parameters']['BUILD_TOOL']}} \
-#            --language={{ctx.current_template['parameters']['JVM_LANGUAGE']}} \
-#            --java-version={{ctx.current_template['parameters']['JAVA_VERSION']}} \
-#            --packaging={{ctx.current_template['parameters']['PACKAGING']}} \
-#            --group-id={{ctx.current_template['parameters']['GROUP_ID']}} \
-#            --artifact-id={{ctx.current_template['parameters']['ARTIFACT_ID']}} \
-#            --name={{ctx.current_template['parameters']['ARTIFACT_ID']}} \
-#            --description={{ctx.current_template['parameters']['DESCRIPTION']}} \
             --build={{params.BUILD_TOOL}} \
             --language={{params.JVM_LANGUAGE}} \
             --java-version={{params.JAVA_VERSION}} \
@@ -35,11 +26,8 @@ jobs:
             --name={{params.ARTIFACT_ID}} \
             --description={{params.DESCRIPTION}} \
             --dependencies=web \
-            --extract \
-            --force
-
-#      - name: Unzip Spring project
-#        run: unzip -o {{ctx.current_template['parameters']['ARTIFACT_ID']}}.zip
+            --force \
+            --extract
 
 #      - name: Remove initialization workflow
 #        run: rm .github/workflows/init_repository.yml
