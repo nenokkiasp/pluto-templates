@@ -95,6 +95,13 @@
       "type": "text",
       "target": "template",
       "field": "ARTIFACT_ID"
+    },
+    {
+      "name": "Description",
+      "description": "Application description",
+      "type": "text",
+      "target": "template",
+      "field": "DESCRIPTION"
     }
   ],
   "documentation": [
